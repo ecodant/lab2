@@ -314,6 +314,7 @@ public class ListaDoble<T> implements Iterable<T> {
 		return null;
 	}
 
+	// Iterator del completo del punto 7
 	@Override
 	public Iterator<T> iterator() {
 

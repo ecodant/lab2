@@ -224,6 +224,49 @@ public class ListaSimpleCircular<T> implements Iterable<T> {
 		return -1;
 	}
 
+	public void insertar(T valorNodo, int indice) {
+		if (indice < 0 || indice > tamanio) {
+			throw new RuntimeException("Índice fuera de rango");
+		}
+
+		if (indice == 0) {
+			agregarInicio(valorNodo);
+			return;
+		}
+
+		if (indice == tamanio) {
+			agregarfinal(valorNodo);
+			return;
+		}
+
+		// Medio
+		Nodo<T> nuevoNodo = new Nodo<>(valorNodo);
+		Nodo<T> nodoAnterior = obtenerNodo(indice - 1);
+		nuevoNodo.setSiguienteNodo(nodoAnterior.getSiguienteNodo());
+		nodoAnterior.setSiguienteNodo(nuevoNodo);
+		tamanio++;
+	}
+
+	public Nodo<T> buscar(T dato) {
+		if (estaVacia()) {
+			return null;
+		}
+
+		Nodo<T> actual = nodoPrimero;
+		int count = 0;
+
+		// Iterar o recorrer la listica
+		while (count < tamanio) {
+			if (actual.getValorNodo().equals(dato)) {
+				return actual;
+			}
+			actual = actual.getSiguienteNodo();
+			count++;
+		}
+
+		return null;
+	}
+
 	@Override
 	public Iterator<T> iterator() {
 		return new IteradorListaSimple(nodoPrimero, tamanio);
@@ -276,4 +319,5 @@ public class ListaSimpleCircular<T> implements Iterable<T> {
 	public void setTamanio(int tamanio) {
 		this.tamanio = tamanio;
 	}
+
 }
