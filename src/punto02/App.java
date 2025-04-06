@@ -20,12 +20,11 @@ public class App {
 
 		ListaSimple<Persona> listaFiltro = obtenerPersonasCedu(listica);
 		Nodo<Persona> puntero = listaFiltro.getNodoPrimero();
-		while (puntero.getSiguienteNodo() != null) {
+		while (puntero != null) {
 			System.out.println(puntero.getValorNodo().getNombre());
 			puntero = puntero.getSiguienteNodo();
 		}
 
-		System.out.println(puntero.getValorNodo().getNombre());
 	}
 
 	public static ListaSimple<Persona> obtenerPersonasCedu(ListaSimple<Persona> lista) {

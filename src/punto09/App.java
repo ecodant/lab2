@@ -6,15 +6,12 @@ import listas.Nodo;
 public class App {
 
 	public static void main(String[] args) {
-		// Crear una nueva lista circular de enteros
 		ListaSimpleCircular<Integer> lista = new ListaSimpleCircular<>();
 
-		// Agregar algunos elementos iniciales
 		lista.agregarInicio(10);
 		lista.agregarfinal(20);
 		lista.agregarfinal(30);
 
-//        System.out.println("Lista inicial:");
 		// Lista del virgen
 		lista.imprimirLista();
 		System.out.println("Tamaño: " + lista.getTamanio());
@@ -24,7 +21,6 @@ public class App {
 		System.out.println("Después de insertar 5 en posición 0:");
 		lista.imprimirLista();
 
-		// Buscar elementos existentess
 		Nodo<Integer> resultadoBusqueda = lista.buscar(Integer.valueOf(10));
 		// Si encontro algo
 		if (resultadoBusqueda != null) {
